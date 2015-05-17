@@ -11,11 +11,11 @@ This site makes use of features only available in PHP 5.5 or better.
 ## Running
 The simplest approach to running the site, if the DB is running locally, is to use the PHP local Web server:
 
-```php -S localhost:8080 server.php```
+```php -S localhost:8080 server.php ```
 
 Once the site is running, connect to:
 
-```http://localhost:9999/operator/init```
+```http://localhost:9999/operator/init ```
 
 This will initialise a user in the operators table in the DB and will display the username:password.
 
@@ -34,7 +34,7 @@ The framework has helpers for storing some specialised session variables such as
 
 URLs take on the following pattern:
 
-```http://domain/{controller}/{action}[/{var1}[/{var2}[/{var3}]]]```
+```http://domain/{controller}/{action}[/{var1}[/{var2}[/{var3}]]] ```
 
 The variables are placed into a segments array that is accessible via ```Apps::segment()``` function.
 
