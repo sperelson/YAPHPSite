@@ -1,0 +1,23 @@
+<?php $nav = "login"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Sign into your <br /><span class="titlename">account</span></h1>
+	</div>
+
+	<form class="pure-form pure-form-aligned" action="/operator/login<?= $back ? "?back=$back" : '' ?>" method="POST">
+		<fieldset>
+		<div class="pure-control-group">
+		<label for="username">Username * <span class="error"><?= $errors['username'] ?></span></label>
+		<input class="required" type="text" id="username" name="username" placeholder="username" value="<?php if (isset($flash['username'])) echo $flash['username']; ?>">
+		</div>
+		<div class="pure-control-group">
+		<label for="password">Password * <span class="error"><?= $errors['email'] ?></span></label>
+		<input class="required" type="password" id="password" name="password" placeholder="6 or more characters" value="<?php if (isset($flash['password'])) echo $flash['password']; ?>">
+		</div>
+
+		<input class="pure-button pure-button-primary" style="float:right;" type="submit" value="Sign in">
+		</fieldset>
+	</form>
+</div>
+<?php include __DIR__ . '/foot.html' ?>
+

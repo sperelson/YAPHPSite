@@ -1,0 +1,44 @@
+<?php $nav = "invoices"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Invoice</h1>
+		<p>Customer: <b><?= $name ?></b></p>
+		<p>Description: <b><?= $invdescription ?></b></p>
+		<?php if (!empty($_SESSION['success'])) { ?>
+		<div class="success"><?= $_SESSION['success'] ?></div>
+		<?php } ?>
+		<?php if (!empty($_SESSION['fail'])) { ?>
+		<div class="error"><?= $_SESSION['fail'] ?></div>
+		<?php } ?>
+		<form class="pure-form" action="/invoiceline/add/<?= $id ?>" method="POST">
+			<fieldset>
+			<input class="required" type="text" name="description" placeholder="description" title="description" value="<?= $description ?>">
+			<input class="required" type="text" name="amount" placeholder="amount" value="<?= $amount ?>">
+			<input class="pure-button pure-button-primary" type="submit" value="Add Invoice Line">
+			</fieldset>
+		</form>
+<?php if (!empty($lines)) { ?>
+<table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>description</th>
+            <th>amount</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($lines as $line) { ?>
+        <tr>
+            <td><?= htmlspecialchars($line['description']) ?></td>
+            <td><?= $line['amount'] ?></td>
+            <td><form style="display: inline;" method="POST" action="/invoiceline/delete/<?= $id ?>/<?= $line['id'] ?>"><input class="button-warning pure-button" type="submit" value="X" title="Delete"></form></td>
+        </tr>
+	<?php } ?>
+    </tbody>
+</table>
+<?php } else { ?>
+	<p>No invoice lines</p>
+<?php } ?>
+	</div>
+</div>
+<?php include __DIR__ . '/foot.html' ?>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Customer Control Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/static/css/pure-min.css">
+	<style>
+html {
+  font-family: Overlock, Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  margin: 0;
+  background: #ffffff;
+  color: #000000;
+  margin: 0 3px;
+}
+.expando {
+  position: relative;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  margin-top: 1em;
+  top: 0px;
+  flex: 1;
+}
+.footer {
+  height: 55px;
+  position: relative;
+  z-index: 101;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 200;
+  font-size: 13px;
+  padding-top: 4em;
+  clear: both;
+  width: 100%;
+  align-self: flex-end;
+  flex-basis: 2;
+}
+.footer div {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.footer a {
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.error {
+	color: #f33;
+}
+.pure-form-aligned input {
+	width: 100%;
+}
+.pure-form-aligned input[type=checkbox] {
+	width: 1.4em;
+}
+.pure-form-aligned .pure-control-group label {
+  text-align: left;
+  width: 300px;
+}
+.middling {
+	text-align: center;
+}
+.titlename {
+font-size: 150%;
+color: #356167;
+}
+.success {
+	color: #3f3;
+}
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #2d3e50;
+}
+.pure-menu.pure-menu-fixed {
+    position: inherit;
+    /* Fixed menus normally have a border at the bottom. */
+    border-bottom: none;
+    /* I need a higher z-index here because of the scroll-over effect. */
+    z-index: 4;
+}
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+
+.pure-menu-selected .pure-menu-link:visited {
+    color: white;
+}
+
+.home-menu a {
+    color: #6FBEF3;
+}
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #AECFE5;
+}
+.pure-menu-list-left {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 2em;
+}
+.pure-menu-list-right {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 2em;
+}
+th {
+	text-align: center;
+}
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-success {
+	background: rgb(28, 184, 65);
+}
+.button-error {
+	background: rgb(202, 60, 60);
+}
+.button-warning {
+	background: rgb(223, 117, 20);
+}
+.button-secondary {
+	background: rgb(66, 184, 221);
+}
+.paid {
+	color: rgb(28, 184, 65);
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	font-weight: bold;
+}
+	</style>
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Overlock:400,700);
+	</style>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<?php include __DIR__ . '/nav.html' ?>

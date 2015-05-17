@@ -1,0 +1,38 @@
+<?php $nav = "customers"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<?php if (!empty($update)) { ?>
+		<h1>Update Customer</h1>
+		<?php } else { ?>
+		<h1>Add Customer</h1>
+		<?php } ?>
+		<?php if (!empty($_SESSION['success'])) { ?>
+		<div class="success"><?= $_SESSION['success'] ?></div>
+		<?php } ?>
+	</div>
+	<form class="pure-form pure-form-aligned" action="/customer/<?= empty($id) ? 'add' : 'update/' . $id ?>" method="POST">
+		<fieldset>
+		<div class="pure-control-group">
+		<label for="name">Name * <span class="error"><?= $errors['name'] ?></span></label>
+		<input class="required" type="text" id="name" name="name" placeholder="name" value="<?php if (isset($name)) echo $name; ?>">
+		</div>
+		<div class="pure-control-group">
+		<label for="address">Address * <span class="error"><?= $errors['address'] ?></span></label>
+		<input class="required" type="text" id="address" name="address" placeholder="address" value="<?php if (isset($address)) echo $address; ?>">
+		</div>
+		<div class="pure-control-group">
+		<label for="username">Username * <span class="error"><?= $errors['username'] ?></span></label>
+		<input class="required" type="text" id="username" name="username" placeholder="username" value="<?php if (isset($username)) echo $username; ?>">
+		</div>
+		<div class="pure-control-group">
+		<label for="password">Password <?= empty($id) ? '*' : '(leave blank to ignore)' ?> <span class="error"><?= $errors['password'] ?></span></label>
+		<input class="required" type="password" id="password" name="password" placeholder="6 or more characters" value="<?php if (isset($password)) echo $password; ?>">
+		</div>
+
+		<input class="pure-button pure-button-primary" style="float:right;" type="submit" value="<?= empty($id) ? 'Add' : 'Update' ?> Customer">
+		</fieldset>
+	</form>
+
+</div>
+<?php include __DIR__ . '/foot.html' ?>
+

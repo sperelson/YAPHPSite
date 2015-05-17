@@ -1,0 +1,27 @@
+<?php $nav = "payments"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Add Payment</h1>
+		<p>Customer: <b><?= $name ?></b></p>
+		<p>Invoice: <b><?= $description ?></b></p>
+		<p>Invoice amount: <b><?= $invamount ?></b></p>
+		<p>Amount outstanding: <b><?= $outstanding ?></b></p>
+		<?php if (!empty($_SESSION['success'])) { ?>
+		<div class="success"><?= $_SESSION['success'] ?></div>
+		<?php } ?>
+		<?php if (!empty($_SESSION['fail'])) { ?>
+		<div class="error"><?= $_SESSION['fail'] ?></div>
+		<?php } ?>
+	</div>
+	<form class="pure-form pure-form-aligned" action="/payment/<?= $id ?>" method="POST">
+		<fieldset>
+		<div class="pure-control-group">
+		<label for="amount">Amount * <span class="error"><?= $errors['amount'] ?></span></label>
+		<input class="required" type="text" id="amount" name="amount" placeholder="amount" value="<?= $amount ?>">
+		</div>
+		<input class="pure-button pure-button-primary" style="float:right;" type="submit" value="Add Payment">
+		</fieldset>
+	</form>
+
+</div>
+<?php include __DIR__ . '/foot.html' ?>

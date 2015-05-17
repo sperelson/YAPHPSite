@@ -1,0 +1,33 @@
+<?php $nav = "payments"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Payments</h1>
+<?php if (!empty($payments)) { ?>
+<table class="pure-table pure-table-horizontal pure-table-striped">
+    <thead>
+        <tr>
+            <th>customer</th>
+            <th>description</th>
+            <th>date</th>
+            <th>invoiced</th>
+            <th>paid</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($payments as $payment) { ?>
+        <tr>
+            <td><?= htmlspecialchars($payment['name']) ?></td>
+            <td><?= htmlspecialchars($payment['description']) ?></td>
+            <td><?= $payment['datecreated'] ?></td>
+            <td><?= $payment['invoiced'] ?></td>
+            <td><?= $payment['paid'] ?></td>
+        </tr>
+	<?php } ?>
+    </tbody>
+</table>
+<?php } else { ?>
+	<p>No payments</p>
+<?php } ?>
+	</div>
+</div>
+<?php include __DIR__ . '/foot.html' ?>

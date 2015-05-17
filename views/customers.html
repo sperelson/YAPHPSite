@@ -1,0 +1,37 @@
+<?php $nav = "customers"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Customers</h1>
+		<p><a class="pure-button pure-button-primary" href="/customer/add">Add a Customer</a></p>
+<?php if (!empty($customers)) { ?>
+<table class="pure-table pure-table-horizontal pure-table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>name</th>
+            <th>balance</th>
+            <th>invoices</th>
+            <th>address</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($customers as $customer) { ?>
+        <tr>
+        	<td><a class="button-secondary pure-button" href="/customer/invoice/<?= $customer['id'] ?>" title="add invoice">invoice</a></td>
+            <td><?= htmlspecialchars($customer['name']) ?></td>
+            <td><?= $customer['balance'] ?></td>
+            <td><?= $customer['invoices'] ?></td>
+            <td><?= htmlspecialchars($customer['address']) ?></td>
+            <td><a class="button-secondary pure-button" href="/customer/<?= $customer['id'] ?>">edit</a>&nbsp;<form style="display: inline;" method="POST" action="/customer/delete/<?= $customer['id'] ?>"><input class="button-warning pure-button" type="submit" value="X" title="Delete"></form></td>
+        </tr>
+	<?php } ?>
+    </tbody>
+</table>
+<?php } else { ?>
+	<p>No customers</p>
+<?php } ?>
+	</div>
+</div>
+<?php include __DIR__ . '/foot.html' ?>
+

@@ -1,0 +1,8 @@
+		<div class="footer"><div>
+<?php if (!empty($_SESSION['name'])) { ?>
+			&nbsp;Logged in as <?= $_SESSION['name'] ?>
+<?php } ?>
+			<br />&nbsp;A demo PHP app by Stephen Perelson. Copyright 2015. Exec time: <?= sprintf('%f', microtime(true) - APPSTART) ?></div>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<?php $nav = "customers"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Add Invoice</h1>
+		<p>Customer: <b><?= $name ?></b></p>
+		<?php if (!empty($_SESSION['success'])) { ?>
+		<div class="success"><?= $_SESSION['success'] ?></div>
+		<?php } ?>
+	</div>
+	<form class="pure-form pure-form-aligned" action="/invoice/add" method="POST">
+		<fieldset>
+		<input type="hidden" name="customerid" value="<?= $customerid ?>">
+		<div class="pure-control-group">
+		<label for="description">Description * <span class="error"><?= $errors['description'] ?></span></label>
+		<input class="required" type="text" id="description" name="description" placeholder="description" value="<?= $description ?>">
+		</div>
+		<input class="pure-button pure-button-primary" style="float:right;" type="submit" value="Add Invoice">
+		</fieldset>
+	</form>
+
+</div>
+<?php include __DIR__ . '/foot.html' ?>

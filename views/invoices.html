@@ -1,0 +1,37 @@
+<?php $nav = "invoices"; include __DIR__ . '/head.html' ?>
+<div class="expando">
+	<div class="middling">
+		<h1>Invoices</h1>
+<?php if (!empty($invoices)) { ?>
+<table class="pure-table pure-table-horizontal pure-table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>customer</th>
+            <th>description</th>
+            <th>date</th>
+            <th>lines</th>
+            <th>amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($invoices as $invoice) { ?>
+        <tr>
+        	<td><?php if ($invoice['outstanding'] !== '0.00') { ?><a class="button-success pure-button" href="/invoice/pay/<?= $invoice['id'] ?>" title="pay invoice">pay</a><?php } else { ?><span class="paid">paid</span><?php } ?></td>
+            <td><?= htmlspecialchars($invoice['name']) ?></td>
+            <td><?= htmlspecialchars($invoice['description']) ?></td>
+            <td><?= $invoice['datecreated'] ?></td>
+            <td><?= $invoice['lines'] ?></td>
+            <td><?= $invoice['amount'] ?></td>
+        	<td><a class="button-secondary pure-button" href="/invoice/<?= $invoice['id'] ?>" title="edit invoice">edit</a></td>
+        </tr>
+	<?php } ?>
+    </tbody>
+</table>
+<?php } else { ?>
+	<p>No Invoices</p>
+<?php } ?>
+	</div>
+</div>
+<?php include __DIR__ . '/foot.html' ?>
