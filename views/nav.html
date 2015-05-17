@@ -1,11 +1,11 @@
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
         <ul class="pure-menu-list-left">
 <?php if (empty($_SESSION['username'])) { ?>
-            <li class="pure-menu-item <?= empty($nav) || $nav == "home" ? 'pure-menu-selected' : '' ?>"><a href="/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item <?= empty($nav) || $nav == "landing" ? 'pure-menu-selected' : '' ?>"><a href="/" class="pure-menu-link">Home</a></li>
 <?php } else { ?>
             <li class="pure-menu-item <?= !empty($nav) && $nav == "customers" ? 'pure-menu-selected' : '' ?>"><a href="/customers" class="pure-menu-link">Customers</a></li>
-            <li class="pure-menu-item <?= empty($nav) || $nav == "invoices" ? 'pure-menu-selected' : '' ?>"><a href="/invoices" class="pure-menu-link">Invoices</a></li>
-            <li class="pure-menu-item <?= empty($nav) || $nav == "payments" ? 'pure-menu-selected' : '' ?>"><a href="/payments" class="pure-menu-link">Payments</a></li>
+            <li class="pure-menu-item <?= !empty($nav) && $nav == "invoices" ? 'pure-menu-selected' : '' ?>"><a href="/invoices" class="pure-menu-link">Invoices</a></li>
+            <li class="pure-menu-item <?= !empty($nav) && $nav == "payments" ? 'pure-menu-selected' : '' ?>"><a href="/payments" class="pure-menu-link">Payments</a></li>
 <?php } ?>
         </ul>
         <ul class="pure-menu-list-right">
