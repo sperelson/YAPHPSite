@@ -4,7 +4,8 @@ namespace Perelson;
 
 class RootController
 {
-	public function get_index() {
-		View::show('landing');
-	}
+    public function get_index()
+    {
+        View::show('landing');
+    }
 }
